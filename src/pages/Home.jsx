@@ -12,8 +12,7 @@ const Home = () => {
         const response = await axios.get(
           "https://lereacteur-vinted-api.herokuapp.com/offers"
         );
-        console.log(response.data);
-        setOffers(response.data);
+        setOffers(response.data.offers);
         setIsLoading(false);
       } catch (error) {
         console.error("Error fetching data:", error);
@@ -27,19 +26,28 @@ const Home = () => {
   return (
     <>
     <div className="home">
-      <h1>home page</h1>
+      <h1>Home page</h1>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <ul>
+        <ul className="offer-list">
           {offers.map((offer) => (
-            <li key={offer._id}>
-              <Link to={`/offer/${offer._id}`}>{offer.product_name}</Link>
+            <li key={offer._id} className="offer-item">
+              <Link to={`/offer/${offer._id}`} className="offer-link">
+                <div className="offer-details">
+                  <div className="offer-image">
+                    <img src={offer.product_pictures[0].secure_url} alt={offer.product_name} />
+                  </div>
+                  <div className="offer-info">
+                    <p>{offer.product_name}</p>
+                    <p>{offer.product_price} €</p>
+                  </div>
+                </div>
+              </Link>
             </li>
           ))}
         </ul>
       )}
-      <Link to="/offer">lien vers une offre</Link>
     </div>
     </>
   )
