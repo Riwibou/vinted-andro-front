@@ -35,7 +35,7 @@ const Home = () => {
             <li key={offer._id} className="offer-item">
               <Link to={`/offer/${offer._id}`} className="offer-link">
                 <div className="offer-details">
-                  <img src={offer.owner.account.secure_url} alt="avatar-user-account" />
+                  <img src={offer.owner.account.avatar?.secure_url} alt="avatar-user-account" />
                   <span>{offer.owner.account.username}</span>
                   <div className="offer-image">
                     <img src={offer.product_image.secure_url} alt={offer.product_name} />

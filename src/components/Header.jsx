@@ -15,15 +15,17 @@ const Header = () => {
             <li>
               <Link to="/selling">Vends tes articles</Link>
             </li>
+            <li>
+              <Link to="/login">Login</Link>
+            </li>
+            <li>
+              <Link to="/signup">Sign-up</Link>
+            </li>
           </ul>
         </nav>
         <div className="search-bar">
           <input type="text" placeholder="Search..." />
           <button type="submit">Search</button>
-        </div>
-        <div className="auth">
-          <Link to="/login">Login</Link>
-          <Link to="/register">Register</Link>
         </div>
       </div>
     </header>
