@@ -33,7 +33,6 @@ const Login = () => {
   };
 
   const handleSignup = () => {
-    // Redirect to signup page
     navigate("/signup");
   };
 
