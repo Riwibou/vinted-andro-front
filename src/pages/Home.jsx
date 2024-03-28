@@ -35,12 +35,15 @@ const Home = () => {
             <li key={offer._id} className="offer-item">
               <Link to={`/offer/${offer._id}`} className="offer-link">
                 <div className="offer-details">
+                  <img src={offer.owner.account.secure_url} alt="avatar-user-account" />
+                  <span>{offer.owner.account.username}</span>
                   <div className="offer-image">
-                    <img src={offer.product_pictures[0].secure_url} alt={offer.product_name} />
+                    <img src={offer.product_image.secure_url} alt={offer.product_name} />
                   </div>
                   <div className="offer-info">
-                    <p>{offer.product_name}</p>
                     <p>{offer.product_price} €</p>
+                    <p>{offer.product_details[1].TAILLE}</p>
+                    <p>{offer.product_details[0].MARQUE}</p>
                   </div>
                 </div>
               </Link>

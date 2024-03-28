@@ -39,12 +39,16 @@ const Offer = () => {
               <img src={offer.product_image.secure_url} alt={offer.product_name} />
             </div>
             <div className="offer-info">
-              <p>Prix: {offer.product_price} €</p>
-              <p>Marque: {offer.product_details[0].MARQUE}</p>
-              <p>Taille: {offer.product_details[1].TAILLE}</p>
-              <p>État: {offer.product_details[2].ÉTAT}</p>
-              <p>Couleur: {offer.product_details[3].COULEUR}</p>
-              <p>Emplacement: {offer.product_details[4].EMPLACEMENT}</p>
+              <p>{offer.product_price} €</p>
+              {offer.product_details.map((detail) => {
+                const keys = Object.keys(detail)
+                const keyName = keys[0]
+                return (
+                  <p key={keyName}>
+                    {keyName} {detail[keyName]}
+                  </p>
+                )
+              })}
             </div>
           </div>
           <button onClick={handleBuy}>Acheter</button>
