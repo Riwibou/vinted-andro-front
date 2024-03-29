@@ -1,9 +1,8 @@
 import { useState } from "react";
 import axios from "axios";
-import Cookies from "js-cookie";
 import { useNavigate } from "react-router-dom";
 
-const Login = () => {
+const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
@@ -21,11 +20,9 @@ const Login = () => {
           password: password
         }
       );
-
-      Cookies.set("token", response.data.token, { expires: 7 });
-
-
+      handleToken(response.data.token)
       navigate("/");
+
     } catch (error) {
       console.error("Login failed:", error);
       setError("Invalid email or password. Please try again.");

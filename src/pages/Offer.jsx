@@ -35,6 +35,7 @@ const Offer = () => {
       ) : (
         <>
           <div className="offer-details">
+            <h1>Offer</h1>
             <div className="offer-image">
               <img src={offer.product_image.secure_url} alt={offer.product_name} />
             </div>

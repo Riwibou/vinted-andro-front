@@ -1,3 +1,4 @@
+import { Link, useNavigate } from "react-router-dom"
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -8,6 +9,8 @@ const Signup = () => {
   const [password, setPassword] = useState("");
   const [newsletter, setNewsletter] = useState(false);
   const [errors, setErrors] = useState({});
+
+  const navigate = useNavigate()
 
   const validateForm = () => {
     const errors = {};
@@ -46,16 +49,17 @@ const Signup = () => {
           }
         );
         console.log(response.data.token)
-        Cookies.set("token", response.data.token, {expires: 15});
+        handleToken(response.data.token);
+        navigate("/")
       } catch (error) {
-        console.error("Signup failed:", error);
-
+        console.log(error.response.status);
       }
     }
   };
 
   return (
     <div className="signup-container">
+      <h1>Sign-up</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
           <input
@@ -98,8 +102,11 @@ const Signup = () => {
           </label>
         </div>
         <button type="submit">Sign Up</button>
+
       </form>
-      <p>If you already have an account? Login in!</p>
+      <Link to="/login">
+        <p>If you already have an account? Login in!</p>
+      </Link>
     </div>
   );
 };

@@ -1,6 +1,9 @@
 import { Link } from "react-router-dom";
+import Cookies from "react-router-dom";
 
-const Header = () => {
+
+
+const Header = ({token}) => {
   return (
     <header className="container">
       <div className="header-logo">
@@ -15,12 +18,25 @@ const Header = () => {
             <li>
               <Link to="/selling">Vends tes articles</Link>
             </li>
+
+            {token ? (
+
+            <button> Deconnexion </button>
+            ) : (
+            <>
             <li>
-              <Link to="/login">Login</Link>
+              <Link to="/login">
+                <button>Login</button>
+              </Link>
             </li>
             <li>
-              <Link to="/signup">Sign-up</Link>
+              <Link to="/signup">
+                <button>Sign-up</button>
+              </Link>
             </li>
+            </>
+            )
+            }
           </ul>
         </nav>
         <div className="search-bar">
