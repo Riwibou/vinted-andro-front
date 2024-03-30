@@ -55,3 +55,48 @@
   margin: 14px auto;
   color: #fff;
 }
+
+.card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 300px;
+  margin: 20px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+}
+
+.card-header {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+
+.card-header img {
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  object-fit: cover;
+  margin-right: 10px;
+}
+
+.card-body {
+  width: 100%;
+}
+
+.card-body img {
+  width: 100%;
+  height: auto;
+}
+
+.card-footer {
+  display: flex;
+  flex-direction: column;
+  padding: 10px;
+  width: 100%;
+}
+
+.text-muted {
+  color: #888;
+}
