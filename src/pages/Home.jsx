@@ -38,7 +38,7 @@ const Home = () => {
           {offers.map((offer) => (
             <>
             <Card offer={offer}/>
-            <li key={offer._id} className="offer-item">
+            {/* <li key={offer._id} className="offer-item">
               <Link to={`/offer/${offer._id}`} className="offer-link">
                 <div className="offer-details">
                   <img src={offer.owner.account.avatar?.secure_url} alt="avatar-user-account" />
@@ -53,7 +53,7 @@ const Home = () => {
                   </div>
                 </div>
               </Link>
-            </li>
+            </li> */}
             </>
           ))}
         </ul>
