@@ -1,3 +1,57 @@
 * {
   font-family: 'Roboto', sans-serif;
 }
+
+.container-banner {
+  background-image: url(https://lereacteur-vinted.netlify.app/static/media/hero.2c66d85a1335550c4518.jpg);
+  background-position: 50%;
+  background-size: cover;
+  height: 455px;
+  width: 100%;
+}
+
+.top-banner {
+  height: 375px;
+}
+
+.jumbotron {
+  background-color: #fff;
+  border-radius: 3px;
+  box-shadow: 0 0 2px hsla(0,0%,7%,.24);
+  display: flex;
+  flex-direction: column;
+  height: 220px;
+  justify-content: center;
+  padding: 25px;
+  top: 75px;
+  width: 360px;
+  margin-top: 75px;
+  margin-left: 17%;
+}
+
+.title-banner {
+  font-size: 34px;
+}
+
+.link-btn {
+  text-decoration: none;
+  margin: 14px auto;
+}
+
+.btn-to-login {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2baeb7;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  height: 45px;
+  margin-top: 32px;
+  width: 187px;
+}
+
+.btn-to-login p {
+  margin: 14px auto;
+  color: #fff;
+}

@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import axios from "axios"
 import {useState, useEffect} from "react";
 
+import Banner from "../components/Banner"
+import Card from "../components/Card";
+
 const Home = () => {
   const [offers, setOffers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
@@ -27,11 +30,14 @@ const Home = () => {
     <>
     <div className="home">
       <h1>Home page test </h1>
+      <Banner/>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <ul className="offer-list">
           {offers.map((offer) => (
+            <>
+            <Card offer={offer}/>
             <li key={offer._id} className="offer-item">
               <Link to={`/offer/${offer._id}`} className="offer-link">
                 <div className="offer-details">
@@ -48,6 +54,7 @@ const Home = () => {
                 </div>
               </Link>
             </li>
+            </>
           ))}
         </ul>
       )}
