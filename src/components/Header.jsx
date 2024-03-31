@@ -1,48 +1,58 @@
 import { Link } from "react-router-dom";
-import Cookies from "js-cookie";
+import Switcher from "./Switch";
 
 
 
 const Header = ({token}) => {
   return (
-    <header className="container">
+    <header className="container-header">
       <div className="header-logo">
-        <div className="logo">
-          <Link to="/"><img src="/static/media/logo.10b0caad793dd0a8ea72.png" alt="" /></Link>
-        </div>
-        <nav className="nav">
-          <ul>
-            <li>
-              <Link to="/">Home</Link>
-            </li>
-            <li>
-              <Link to="/selling">Vends tes articles</Link>
-            </li>
+        <Link to="/"><img src="logo.png" alt="logo-vinted" /></Link>
+      </div>
 
+      <div className="header-middle">
+        <div className="search-bar">
+          <input type="text" placeholder="Search..." />
+        </div>
+
+        <div className="header-filter">
+          <div className="filter-toogle">
+            <Switcher/>
+          </div>
+          <div className="filter-range">
+
+          </div>
+
+        </div>
+
+      </div>
+
+      <div>
+          <nav className="nav">
+          <ul>
             {token ? (
 
             <button> Deconnexion </button>
             ) : (
             <>
             <li>
-              <Link to="/login">
-                <button>Login</button>
+              <Link className="login-btn" to="/login">
+                <p>Se connecter</p>
               </Link>
             </li>
             <li>
-              <Link to="/signup">
-                <button>Sign-up</button>
+              <Link className="signup-btn" to="/signup">
+                <p>S&apos;inscrire</p>
               </Link>
             </li>
             </>
             )
             }
+            <li >
+              <Link className="selling-btn" to="/selling">Vends tes articles</Link>
+            </li>
           </ul>
-        </nav>
-        <div className="search-bar">
-          <input type="text" placeholder="Search..." />
-          <button type="submit">Search</button>
-        </div>
+          </nav>
       </div>
     </header>
   );

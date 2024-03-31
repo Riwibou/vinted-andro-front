@@ -9,7 +9,7 @@ const Card = ({offer}) => {
     <div className="card" key={_id}>
       <div className="card-header">
         <img src={owner.account.avatar?.secure_url} alt="" />
-        <h3 className="text-muted">{owner.account.username}</h3>
+        <p className="text-muted">{owner.account.username}</p>
       </div>
 
       <div className="card-body">
@@ -19,7 +19,7 @@ const Card = ({offer}) => {
       </div>
 
       <div className="card-footer">
-        <p className="text-muted">{product_price} €</p>
+        <p className="price">{product_price} €</p>
         <p className="text-muted">{product_details[1].TAILLE}</p>
         <p className="text-muted">{product_details[0].MARQUE}</p>
       </div>

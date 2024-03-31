@@ -29,12 +29,11 @@ const Home = () => {
   return (
     <>
     <div className="home">
-      <h1>Home page test </h1>
       <Banner/>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <ul className="offer-list">
+        <div className="offer-list">
           {offers.map((offer) => (
             <>
             <Card offer={offer}/>
@@ -56,7 +55,7 @@ const Home = () => {
             </li> */}
             </>
           ))}
-        </ul>
+        </div>
       )}
     </div>
     </>
