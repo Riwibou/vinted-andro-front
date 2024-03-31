@@ -35,11 +35,12 @@ const Login = ({ handleToken }) => {
 
   return (
     <div className="login-container">
-      <h1>Login</h1>
+      <h1>Se connecter</h1>
       <form onSubmit={handleSubmit}>
         <div className="form-group">
-          <label>Email:</label>
+          <label></label>
           <input
+            placeholder="Adresse email"
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -47,8 +48,9 @@ const Login = ({ handleToken }) => {
           />
         </div>
         <div className="form-group">
-          <label>Password:</label>
+          <label></label>
           <input
+            placeholder="Mot de passe"
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
@@ -57,10 +59,10 @@ const Login = ({ handleToken }) => {
         </div>
         {error && <div className="error">{error}</div>}
         <div className="form-group">
-          <button type="submit">Login</button>
+          <button type="submit">Se connecter</button>
         </div>
       </form>
-      <p> Dont have an account? <button onClick={handleSignup}>Create one</button></p>
+      <p>Pas encore de compte ?<button onClick={handleSignup}> Inscris-toi !</button></p>
     </div>
   );
 };

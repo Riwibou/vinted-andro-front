@@ -63,7 +63,7 @@ const Signup = () => {
         <div className="form-group">
           <input
             type="text"
-            placeholder="Username"
+            placeholder="Nom d'utilisateur"
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className={errors.username ? "error" : ""}
@@ -83,7 +83,7 @@ const Signup = () => {
         <div className="form-group">
           <input
             type="password"
-            placeholder="Password"
+            placeholder="Mot de passe"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             className={errors.password ? "error" : ""}
@@ -97,14 +97,19 @@ const Signup = () => {
               checked={newsletter}
               onChange={() => setNewsletter(!newsletter)}
             />
-            Subscribe to newsletter
+            S&apos;inscrire à notre newsletter
           </label>
+            <h6>
+            En m&apos;inscrivant je confirme avoir lu et accepté les Termes
+            & Conditions et Politique de Confidentialité de Vinted.
+            Je confirme avoir au moins 18 ans.
+            </h6>
         </div>
-        <button type="submit">Sign Up</button>
+        <button type="submit">S&apos;inscrire</button>
 
       </form>
       <Link to="/login">
-        <p>If you already have an account? Login in!</p>
+        <p>Tu as déjà un compte ? Connecte-toi !</p>
       </Link>
     </div>
   );

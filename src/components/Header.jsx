@@ -48,9 +48,15 @@ const Header = ({token}) => {
             </>
             )
             }
+            {token ? (
             <li >
               <Link className="selling-btn" to="/selling">Vends tes articles</Link>
             </li>
+            ) : (
+            <li >
+              <Link className="selling-btn" to="/login">Vends tes articles</Link>
+            </li>)
+            }
           </ul>
           </nav>
       </div>

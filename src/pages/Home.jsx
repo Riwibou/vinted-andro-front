@@ -31,7 +31,7 @@ const Home = () => {
     <div className="home">
       <Banner/>
       {isLoading ? (
-        <p>Loading...</p>
+        <p>Chargement...</p>
       ) : (
         <div className="offer-list">
           {offers.map((offer) => (
