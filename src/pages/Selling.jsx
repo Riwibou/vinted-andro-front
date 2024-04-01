@@ -4,7 +4,6 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 function Selling({ token }) {
-
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
@@ -49,7 +48,6 @@ function Selling({ token }) {
         {
           headers: {
             Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
           },
         }
       );
@@ -60,7 +58,7 @@ function Selling({ token }) {
       }));
       navigate("/")
     } catch (error) {
-      console.log(error.response.data);
+      console.log(error.response);
     }
   };
 
