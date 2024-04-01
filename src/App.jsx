@@ -18,6 +18,7 @@ import Header from './components/Header'
 
 function App() {
   const [token, setToken] = useState(Cookies.get("vinted-token") || null)
+  const [search, setSearch] = useState("")
 
   const handleToken =(token) => {
     if(token) { Cookies.set("vinted-token", token, {expires: 15})
@@ -28,12 +29,18 @@ function App() {
     }
   }
 
+
+
   return (
     <>
     <Router>
-      <Header token={token}/>
+      <Header
+      token={token}
+      search={search}
+      handleToken={handleToken}
+      setSearch={setSearch}/>
       <Routes>
-          <Route path="/" element={<Home/>} />
+          <Route path="/" element={<Home search={search}/>} />
           <Route path="/offer/:id" element={<Offer/>} />
           <Route path="/signup" element={<Signup handleToken={handleToken}/>}/>
           <Route path="/login" element={<Login handleToken={handleToken}/>}/>

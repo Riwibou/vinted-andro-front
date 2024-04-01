@@ -1,11 +1,16 @@
 import { Link } from "react-router-dom";
 
-const Card = ({offer}) => {
-
-  const {_id, owner, product_image, product_details, product_price, product_name} = offer;
+const Card = ({ offer }) => {
+  const {
+    _id,
+    owner,
+    product_image,
+    product_details,
+    product_price,
+    product_name,
+  } = offer;
 
   return (
-    <>
     <div className="card" key={_id}>
       <div className="card-header">
         <img src={owner.account.avatar?.secure_url} alt="" />
@@ -24,8 +29,7 @@ const Card = ({offer}) => {
         <p className="text-muted">{product_details[0].MARQUE}</p>
       </div>
     </div>
-  </>
-  )
-}
+  );
+};
 
-export default Card
+export default Card;

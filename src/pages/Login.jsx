@@ -1,6 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 const Login = ({ handleToken }) => {
   const [email, setEmail] = useState("");
@@ -17,12 +17,11 @@ const Login = ({ handleToken }) => {
         "https://lereacteur-vinted-api.herokuapp.com/user/login",
         {
           email: email,
-          password: password
+          password: password,
         }
       );
-      handleToken(response.data.token)
+      handleToken(response.data.token);
       navigate("/");
-
     } catch (error) {
       console.error("Login failed:", error);
       setError("Invalid email or password. Please try again.");
@@ -36,7 +35,7 @@ const Login = ({ handleToken }) => {
   return (
     <div className="login-container">
       <h1>Se connecter</h1>
-      <form onSubmit={handleSubmit}>
+      <form className="formulaire" onSubmit={handleSubmit}>
         <div className="form-group">
           <label></label>
           <input
@@ -59,10 +58,17 @@ const Login = ({ handleToken }) => {
         </div>
         {error && <div className="error">{error}</div>}
         <div className="form-group">
-          <button type="submit">Se connecter</button>
+          <button className="btn-to-login" type="submit">
+            Se connecter
+          </button>
         </div>
       </form>
-      <p>Pas encore de compte ?<button onClick={handleSignup}> Inscris-toi !</button></p>
+      <p className="inscrire">
+        Pas encore de compte ?
+        <span>
+          <Link to="/signup"> Inscris-toi !</Link>
+        </span>
+      </p>
     </div>
   );
 };

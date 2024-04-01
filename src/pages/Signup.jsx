@@ -1,4 +1,4 @@
-import { Link, useNavigate } from "react-router-dom"
+import { Link, useNavigate } from "react-router-dom";
 import { useState } from "react";
 import axios from "axios";
 import Cookies from "js-cookie";
@@ -10,7 +10,7 @@ const Signup = () => {
   const [newsletter, setNewsletter] = useState(false);
   const [errors, setErrors] = useState({});
 
-  const navigate = useNavigate()
+  const navigate = useNavigate();
 
   const validateForm = () => {
     const errors = {};
@@ -45,12 +45,12 @@ const Signup = () => {
             email: email,
             username: username,
             password: password,
-            newsletter: newsletter
+            newsletter: newsletter,
           }
         );
-        console.log(response.data.token)
+        console.log(response.data.token);
         handleToken(response.data.token);
-        navigate("/")
+        navigate("/");
       } catch (error) {
         console.log(error.response.status);
       }
@@ -59,7 +59,8 @@ const Signup = () => {
 
   return (
     <div className="signup-container">
-      <form onSubmit={handleSubmit}>
+      <h1>S&apos;inscrire</h1>
+      <form className="formulaire" onSubmit={handleSubmit}>
         <div className="form-group">
           <input
             type="text"
@@ -67,9 +68,10 @@ const Signup = () => {
             value={username}
             onChange={(e) => setUsername(e.target.value)}
             className={errors.username ? "error" : ""}
-          />
-          {errors.username && <span className="error-message">{errors.username}</span>}
+          />{" "}
         </div>
+        {errors.username && <p className="error-message">{errors.username}</p>}
+
         <div className="form-group">
           <input
             type="email"
@@ -78,8 +80,9 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             className={errors.email ? "error" : ""}
           />
-          {errors.email && <span className="error-message">{errors.email}</span>}
         </div>
+        {errors.email && <p className="error-message">{errors.email}</p>}
+
         <div className="form-group">
           <input
             type="password"
@@ -88,29 +91,32 @@ const Signup = () => {
             onChange={(e) => setPassword(e.target.value)}
             className={errors.password ? "error" : ""}
           />
-          {errors.password && <span className="error-message">{errors.password}</span>}
         </div>
-        <div className="form-group">
-          <label>
-            <input
-              type="checkbox"
-              checked={newsletter}
-              onChange={() => setNewsletter(!newsletter)}
-            />
+        {errors.password && <p className="error-message">{errors.password}</p>}
+
+        <div className="form-group check">
+          <input
+            type="checkbox"
+            checked={newsletter}
+            onChange={() => setNewsletter(!newsletter)}
+          />
+          <label className="check-label">
             S&apos;inscrire à notre newsletter
           </label>
-            <h6>
-            En m&apos;inscrivant je confirme avoir lu et accepté les Termes
-            & Conditions et Politique de Confidentialité de Vinted.
-            Je confirme avoir au moins 18 ans.
-            </h6>
         </div>
-        <button type="submit">S&apos;inscrire</button>
+        <h6>
+          En m&apos;inscrivant je confirme avoir lu et accepté les Termes &
+          Conditions et Politique de Confidentialité de Vinted. Je confirme
+          avoir au moins 18 ans.
+        </h6>
 
+        <button className="btn-to-login" type="submit">
+          S&apos;inscrire
+        </button>
       </form>
-      <Link to="/login">
-        <p>Tu as déjà un compte ? Connecte-toi !</p>
-      </Link>
+      <p className="inscrire">
+        <Link to="/login">Tu as déjà un compte ? Connecte-toi !</Link>
+      </p>
     </div>
   );
 };
