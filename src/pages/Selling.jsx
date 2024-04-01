@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import { useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 function Selling({ token }) {
+
+  const navigate = useNavigate();
   const [formData, setFormData] = useState({
     username: "",
     title: "",
@@ -56,6 +59,7 @@ function Selling({ token }) {
         ...prevData,
         pictureFromCloudinary: response.data.secure_url,
       }));
+      navigate("/")
     } catch (error) {
       console.log(error.response.data);
     }
