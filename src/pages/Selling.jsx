@@ -54,7 +54,6 @@ function Selling({ token }) {
         }
       );
 
-      console.log(response.data);
       setFormData((prevData) => ({
         ...prevData,
         pictureFromCloudinary: response.data.secure_url,
