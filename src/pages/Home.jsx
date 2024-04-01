@@ -1,11 +1,12 @@
-import { Link } from "react-router-dom";
+/* eslint-disable react/prop-types */
+
 import axios from "axios";
 import { useState, useEffect } from "react";
 
 import Banner from "../components/Banner";
 import Card from "../components/Card";
 
-const Home = () => {
+const Home = ({search}) => {
   const [offers, setOffers] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
 
@@ -13,7 +14,7 @@ const Home = () => {
     const fetchData = async () => {
       try {
         const response = await axios.get(
-          "https://lereacteur-vinted-api.herokuapp.com/offers"
+          `https://lereacteur-vinted-api.herokuapp.com/offers?title=${search}`
         );
         setOffers(response.data.offers);
         setIsLoading(false);
@@ -24,7 +25,7 @@ const Home = () => {
     };
 
     fetchData();
-  }, []);
+  }, [search]);
 
   return (
     <>
@@ -35,7 +36,7 @@ const Home = () => {
         ) : (
           <div className="offer-list">
             {offers.map((offer) => (
-              <Card offer={offer} />
+              <Card key ={offer._id} offer={offer} />
             ))}
           </div>
         )}

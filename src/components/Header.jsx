@@ -1,7 +1,9 @@
+/* eslint-disable react/prop-types */
+
 import { Link } from "react-router-dom";
 import Switcher from "./Switch";
 
-const Header = ({ token }) => {
+const Header = ({ token, search, handleToken, setSearch }) => {
   return (
     <div className="center">
       <header className="container-header">
@@ -13,7 +15,15 @@ const Header = ({ token }) => {
 
         <div className="header-middle">
           <div className="search-bar">
-            <input type="text" placeholder="Search..." />
+            <input
+            name="search"
+            type="text"
+            placeholder="Rechercher des articles"
+            value={search}
+            onChange={(e) => {
+              setSearch(e.target.value)
+            }}
+            />
           </div>
 
           <div className="header-filter">
@@ -28,7 +38,7 @@ const Header = ({ token }) => {
           <nav className="nav">
             <ul>
               {token ? (
-                <button> Deconnexion </button>
+                <button onClick={() => {handleToken(null)}}> Deconnexion </button>
               ) : (
                 <>
                   <li>
