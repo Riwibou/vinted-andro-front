@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
+
 // someting to add in public for netlify, dont forget to check what before deployement
 
 // import of pages
@@ -12,6 +13,7 @@ import Home from './pages/Home';
 import Offer from './pages/Offer';
 import Signup from './pages/Signup';
 import Login from './pages/Login'
+import Selling from './pages/Selling'
 
 // import of components
 import Header from './components/Header'
@@ -29,8 +31,6 @@ function App() {
     }
   }
 
-
-
   return (
     <>
     <Router>
@@ -44,6 +44,7 @@ function App() {
           <Route path="/offer/:id" element={<Offer/>} />
           <Route path="/signup" element={<Signup handleToken={handleToken}/>}/>
           <Route path="/login" element={<Login handleToken={handleToken}/>}/>
+          <Route path="/selling" element={<Selling handleToken={handleToken} />}/>
           <Route path="*" element={<p>Error 404</p>} />
       </Routes>
     </Router>
