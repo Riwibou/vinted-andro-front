@@ -1,11 +1,13 @@
 import { useParams } from "react-router-dom";
 import axios from "axios";
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
-const Offer = () => {
+const Offer = ({title, price}) => {
   const { id } = useParams();
   const [offer, setOffer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchOffer = async () => {
@@ -25,7 +27,7 @@ const Offer = () => {
   }, [id]);
 
   const handleBuy = () => {
-
+    navigate("/payment", {state: { title, price }})
   };
 
   return (

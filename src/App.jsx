@@ -14,7 +14,7 @@ import Offer from './pages/Offer';
 import Signup from './pages/Signup';
 import Login from './pages/Login'
 import Selling from './pages/Selling'
-
+import Payment from './pages/Payment'
 // import of components
 import Header from './components/Header'
 
@@ -42,6 +42,7 @@ function App() {
       <Routes>
           <Route path="/" element={<Home search={search}/>} />
           <Route path="/offer/:id" element={<Offer/>} />
+          <Route path="/payment" element={<Payment />}/>
           <Route path="/signup" element={<Signup handleToken={handleToken}/>}/>
           <Route path="/login" element={<Login handleToken={handleToken}/>}/>
           <Route path="/selling" element={<Selling token={token} />}/>

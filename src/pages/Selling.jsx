@@ -56,6 +56,9 @@ function Selling({ token }) {
         ...prevData,
         pictureFromCloudinary: response.data.secure_url,
       }));
+      // if (response.data._id) {
+      //   navigate(`/offers/${response.data._id}`)
+      // }
       navigate("/")
     } catch (error) {
       console.log(error.response);
@@ -67,9 +70,10 @@ function Selling({ token }) {
       <h2 className="selling-title">Vends ton article</h2>
         {formData.pictureFromCloudinary && (
           <img src={formData.pictureFromCloudinary} alt="" />
+          // src={URL.createObjectURL(picture)
         )}
       <form
-        style={{ display: "flex", flexDirection: "column" }}
+        style={{ display: "flex", flexDirection: "column", width: "400px" }}
         onSubmit={handleSubmit}
       >
         <input
@@ -88,7 +92,7 @@ function Selling({ token }) {
         />
 
         Décris ton article
-        <input
+        <textarea rows={6} cols={30}
           type="text"
           name="description"
           value={formData.description}

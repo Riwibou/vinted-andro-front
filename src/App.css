@@ -114,7 +114,7 @@ body {
 /* BANNER */
 
 .container-banner {
-  background-image: url(https://lereacteur-vinted.netlify.app/static/media/hero.2c66d85a1335550c4518.jpg);
+  background-image: url("../public/hero-24963eb2.jpg");
   background-position: 50%;
   background-size: cover;
   height: 455px;
