@@ -10,6 +10,7 @@ const stripePromise = loadStripe(
 function Payment() {
 
   const location = useLocation();
+  console.log(location);
   const { title, price } = location.state || {}
 
   console.log("Prix avant option", price)

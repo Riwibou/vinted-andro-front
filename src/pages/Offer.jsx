@@ -15,6 +15,7 @@ const Offer = ({title, price}) => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
+        console.log("reponse data", response.data);
         setOffer(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -27,7 +28,7 @@ const Offer = ({title, price}) => {
   }, [id]);
 
   const handleBuy = () => {
-    navigate("/payment", {state: { title, price }})
+    navigate("/payment", {state: { title: offer.product_name, price: offer.product_price }})
   };
 
   return (
