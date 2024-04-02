@@ -23,15 +23,16 @@ function Payment() {
   console.log("Prix après option", price)
 
   return (
+    <>
     <Elements stripe={stripePromise} options={options}>
+      <p>{title}</p>
       <CheckoutForm />
     </Elements>
+    <p>{price}€</p>
+    </>
   );
 
 }
 
 export default Payment
 
-// y a une histoire price a filer en props
-// et
-// de token pour only loged-in user can buy

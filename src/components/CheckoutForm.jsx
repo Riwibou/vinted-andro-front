@@ -51,6 +51,7 @@ const CheckoutForm = () => {
       <button type="submit" disabled={!stripe || !elements || isLoading}>
         Payer
       </button>
+
       {errorMessage && <p>{errorMessage}</p>}
     </form>
   );
