@@ -3,7 +3,7 @@ import axios from "axios";
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 
-const Offer = ({title, price}) => {
+const Offer = ({title, price, token}) => {
   const { id } = useParams();
   const [offer, setOffer] = useState(null);
   const [isLoading, setIsLoading] = useState(true);
@@ -15,7 +15,6 @@ const Offer = ({title, price}) => {
         const response = await axios.get(
           `https://lereacteur-vinted-api.herokuapp.com/offer/${id}`
         );
-        console.log("reponse data", response.data);
         setOffer(response.data);
         setIsLoading(false);
       } catch (error) {
@@ -28,7 +27,11 @@ const Offer = ({title, price}) => {
   }, [id]);
 
   const handleBuy = () => {
-    navigate("/payment", {state: { title: offer.product_name, price: offer.product_price }})
+    if (token) {navigate("/payment", {
+      state: { title: offer.product_name, price: offer.product_price, token: token }
+    })
+  } else { navigate("/login")}
+
   };
 
   return (

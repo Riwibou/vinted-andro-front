@@ -1,22 +1,41 @@
 // CheckoutForm.jsx
 import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
-const CheckoutForm = () => {
+const CheckoutForm = ({title, price}) => {
   const [errorMessage, setErrorMessage] = useState(null);
   const [isLoading, setIsLoading] = useState(false);
   const [paymentIsDone, setPaymentIsDone] = useState(false);
+  const [clientSecret, setClientSecret] = useState(null);
 
   const stripe = useStripe();
   const elements = useElements();
+
+  useEffect(() => {
+    const fetchClientSecret = async () => {
+      try {
+        const response = await axios.post('https://lereacteur-vinted-api.herokuapp.com/v2/payment', {
+          title: title,
+          amount: price
+        });        setClientSecret(response.data.clientSecret);
+        console.log("response.data", response.data)
+        console.log("response.data?clientsecret", response.data.clientSecret)
+      } catch (error) {
+        console.error("Error fetching clientSecret:", error);
+        setErrorMessage("An error occurred while processing your payment.");
+      }
+    };
+
+    fetchClientSecret();
+  }, [title, price]);
 
   const handleSubmit = async (event) => {
     event.preventDefault();
     setIsLoading(true);
 
     try {
-      if (!stripe || !elements) {
+      if (!stripe || !elements || !clientSecret) {
         return;
       }
 
@@ -33,7 +52,7 @@ const CheckoutForm = () => {
         return;
       }
 
-      // Handle payment success
+
       setPaymentIsDone(true);
     } catch (error) {
       console.error("Error:", error);
@@ -51,7 +70,6 @@ const CheckoutForm = () => {
       <button type="submit" disabled={!stripe || !elements || isLoading}>
         Payer
       </button>
-
       {errorMessage && <p>{errorMessage}</p>}
     </form>
   );

@@ -10,29 +10,25 @@ const stripePromise = loadStripe(
 function Payment() {
 
   const location = useLocation();
-  console.log(location);
-  const { title, price } = location.state || {}
+  const { title, price } = location.state
 
-  console.log("Prix avant option", price)
   const options = {
-  mode: "payment",
-  title: title,
-  amount: Number((price * 100).toFixed(0)),
-  currency: "eur",
-};
-  console.log("Prix après option", price)
+    mode: "payment",
+    amount: Number((price * 100).toFixed(0)),
+    currency: "eur",
+  };
+
 
   return (
     <>
-    <Elements stripe={stripePromise} options={options}>
-      <p>{title}</p>
-      <CheckoutForm />
-    </Elements>
-    <p>{price}€</p>
+      <Elements stripe={stripePromise} options={options}>
+        <p>{title}</p>
+        <CheckoutForm title={title} price={price} />
+      </Elements>
+      <p>{price}€</p>
     </>
   );
 
 }
 
 export default Payment
-
