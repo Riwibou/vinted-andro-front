@@ -21,11 +21,11 @@ function Payment() {
 
   return (
     <>
+        <p>Vous allez acheter le produit :{title}</p>
       <Elements stripe={stripePromise} options={options}>
-        <p>{title}</p>
         <CheckoutForm title={title} price={price} />
       </Elements>
-      <p>{price}€</p>
+      <p>Vous allez payer : {price}€</p>
     </>
   );
 

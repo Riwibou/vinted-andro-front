@@ -1,4 +1,3 @@
-// CheckoutForm.jsx
 import { PaymentElement, useElements, useStripe } from "@stripe/react-stripe-js";
 import axios from "axios";
 import { useState, useEffect } from "react";
