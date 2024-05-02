@@ -10,7 +10,7 @@ const Banner = () => {
           </h1>
           <div className="btn-to-login">
             <Link className="link-btn" to="/login">
-              <p>Commencer à vendre</p>
+              <p style={{color: "white"}}>Commencer à vendre</p>
             </Link>
           </div>
         </div>

@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Routes, Route} from "react-router-dom";
 import { useState } from "react";
 import Cookies from "js-cookie";
 
-
 // someting to add in public for netlify, dont forget to check what before deployement
 
 // import of pages

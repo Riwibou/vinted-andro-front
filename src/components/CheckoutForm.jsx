@@ -16,10 +16,9 @@ const CheckoutForm = ({title, price}) => {
       try {
         const response = await axios.post('https://lereacteur-vinted-api.herokuapp.com/v2/payment', {
           title: title,
-          amount: price
-        });        setClientSecret(response.data.clientSecret);
-        console.log("response.data", response.data)
-        console.log("response.data?clientsecret", response.data.clientSecret)
+          amount: price,
+        });
+        setClientSecret(response.data.clientSecret);
       } catch (error) {
         console.error("Error fetching clientSecret:", error);
         setErrorMessage("An error occurred while processing your payment.");

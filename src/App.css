@@ -70,7 +70,8 @@ body {
 .nav ul > li {
   float: left;
   text-decoration: none;
-  margin-left: 30px;
+  margin-left: 10px;
+  margin-bottom: 18px;
 }
 
 .login-btn,
@@ -101,6 +102,7 @@ body {
   justify-content: center;
   align-items: center;
   margin-left: 40px;
+  margin-bottom: 10px;
 }
 
 .selling-btn {
@@ -109,6 +111,7 @@ body {
 
 .toggle-title {
   font-size: 12px;
+  margin-top: -4px;
 }
 
 /* BANNER */
@@ -285,6 +288,7 @@ body {
   margin-top: 32px;
   width: 275px;
   color: #fff;
+  margin-left: 40px;
 }
 
 .form-group {

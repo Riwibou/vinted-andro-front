@@ -44,7 +44,6 @@ const Signup = ({ handleToken }) => {
           "https://lereacteur-vinted-api.herokuapp.com/user/signup",
           {
             email: email,
-            username: username,
             password: password,
             newsletter: newsletter,
           }
