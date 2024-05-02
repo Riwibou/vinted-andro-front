@@ -89,6 +89,16 @@ body {
   align-items: center;
 }
 
+.signup-btn:hover {
+  background-color: #1b6e74;
+  color: white;
+}
+
+.login-btn:hover {
+  background-color: #1b6e74;
+  color: white;
+}
+
 .selling-btn {
   text-decoration: none;
   background-color: #2cb1ba;
@@ -103,6 +113,11 @@ body {
   align-items: center;
   margin-left: 40px;
   margin-bottom: 10px;
+}
+
+.selling-btn:hover {
+  background-color: #1b6e74;
+  color: white;
 }
 
 .selling-btn {
@@ -291,6 +306,31 @@ body {
   margin-left: 40px;
 }
 
+.btn-to-login:hover {
+  background-color: #1b6e74;
+  color: white;
+}
+
+.btn-to-login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #2baeb7;
+  border: none;
+  border-radius: 4px;
+  font-size: 16px;
+  height: 45px;
+  margin-top: 32px;
+  width: 275px;
+  color: #fff;
+}
+
+.btn-to-login-page:hover {
+  background-color: #1b6e74;
+  color: white;
+}
+
+
 .form-group {
   display: flex;
   justify-content: center;
@@ -307,6 +347,8 @@ p.inscrire a {
   font-size: 12px;
   text-decoration: none;
 }
+
+
 
 .check-label {
   width: 250px;
@@ -326,4 +368,137 @@ p.inscrire a {
   color: #999;
   font-size: 12px;
   text-align: left;
+}
+
+/* OFFER PAGE  */
+.offer {
+  display: flex;
+  flex-direction: row; 
+  align-items: center;
+  padding: 20px;
+  margin-left: 180px;
+}
+
+.offer-details {
+  background-color: #e5e5e5;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  flex: 1;
+}
+
+.offer-info p {
+  margin: 10px 0;
+  color: black;
+}
+
+.offer-image {
+  width: 350px;
+  padding-right: 50px;
+}
+
+.offer-image img {
+  max-width: 100%;
+  height: auto;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+button {
+  padding: 10px 20px;
+  background-color: #2baeb7;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  margin-top: 20px;
+}
+
+button:hover {
+  background-color: #1b6e74;
+}
+
+/* Media Queries for Smartphones */
+
+@media only screen and (max-width: 768px) {
+  .container-header {
+    flex-direction: column;
+    height: auto;
+    padding: 10px;
+  }
+
+  .header-logo {
+    margin-bottom: 20px;
+  }
+
+  .header-middle {
+    width: 100%;
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .search-bar input {
+    width: calc(100% - 20px);
+    padding-left: 10px;
+  }
+
+  .nav ul {
+    margin-right: 0;
+    margin-top: 10px;
+  }
+
+  .nav ul > li {
+    margin-left: 0;
+    margin-bottom: 10px;
+  }
+
+  .login-btn,
+  .signup-btn,
+  .selling-btn,
+  .btn-to-login-page {
+    width: 100%;
+    margin-bottom: 10px;
+  }
+
+  .btn-to-login {
+    margin: 20px;
+  }
+
+  .header-middle {
+    width: 100%;
+    margin-top: 20px;
+  }
+
+  .search-bar input {
+    width: calc(100% - 80px);
+  }
+
+  .nav ul {
+    margin-right: 0;
+  }
+
+  .login-btn,
+  .signup-btn,
+  .selling-btn,
+  .btn-to-login,
+  .btn-to-login-page {
+    width: 100%;
+  }
+
+  .offer {
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-left: 0;
+    margin-bottom: 15px;
+  }
+
+  .offer-image {
+    width: 100%;
+    padding-right: 0;
+    margin-bottom: 20px;
+  }
+
+  .offer-details {
+    width: 100%;
+  }
 }

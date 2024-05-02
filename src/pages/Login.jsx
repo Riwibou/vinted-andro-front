@@ -58,7 +58,7 @@ const Login = ({ handleToken }) => {
         </div>
         {error && <div className="error">{error}</div>}
         <div className="form-group">
-          <button className="btn-to-login" type="submit">
+          <button className="btn-to-login-page" type="submit">
             Se connecter
           </button>
         </div>

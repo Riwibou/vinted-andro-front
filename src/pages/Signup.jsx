@@ -110,7 +110,7 @@ const Signup = ({ handleToken }) => {
           avoir au moins 18 ans.
         </h6>
 
-        <button className="btn-to-login" type="submit">
+        <button className="btn-to-login-page" type="submit">
           S&apos;inscrire
         </button>
       </form>

@@ -34,31 +34,36 @@ const Offer = ({title, price, token}) => {
 
   };
 
+  function capitalizeFirstLetter(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1).toLowerCase();
+  }
+
   return (
     <div className="offer">
       {isLoading ? (
         <p>Loading...</p>
       ) : (
         <>
-          <div className="offer-details">
-            <h1>Offer</h1>
+          <div className="offer">
             <div className="offer-image">
               <img src={offer.product_image.secure_url} alt={offer.product_name} />
             </div>
-            <div className="offer-info">
-              <p>{offer.product_price} €</p>
-              {offer.product_details.map((detail) => {
-                const keys = Object.keys(detail)
-                const keyName = keys[0]
-                return (
-                  <p key={keyName}>
-                    {keyName} {detail[keyName]}
-                  </p>
-                )
-              })}
+            <div className="offer-details">
+              <div className="offer-info">
+                <p>{offer.product_price} €</p>
+                {offer.product_details.map((detail) => {
+                  const keys = Object.keys(detail);
+                  const keyName = keys[0];
+                  return (
+                    <p key={keyName}>
+                      {capitalizeFirstLetter(keyName)}: {detail[keyName]}
+                    </p>
+                  );
+                })}
+              </div>
+              <button onClick={handleBuy}>Acheter</button>
             </div>
           </div>
-          <button onClick={handleBuy}>Acheter</button>
         </>
       )}
     </div>
